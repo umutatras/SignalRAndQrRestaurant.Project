@@ -1,12 +1,11 @@
 ﻿using SignalR.DataAccessLayer.Abstraction;
 using SignalR.EntityLayer.Entities;
 
-namespace SignalR.DataAccessLayer.UnitOfWork
+namespace SignalR.DataAccessLayer.UnitOfWork;
+
+public interface IUnitOfWork
 {
-    internal interface IUnitOfWork
-    {
-        IRepository<T> GetRepository<T>() where T : BaseEntity;
-        Task SaveChangesAsync();
-        void SaveChanges();
-    }
+    IRepository<T> GetRepository<T>() where T : BaseEntity;
+    Task SaveChangesAsync();
+    void SaveChanges();
 }
