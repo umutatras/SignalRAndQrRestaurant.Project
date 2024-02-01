@@ -1,8 +1,9 @@
-﻿namespace SignalR.EntityLayer;
+﻿using SignalR.EntityLayer.Entities;
 
-public class Contact
+namespace SignalR.EntityLayer;
+
+public class Contact: BaseEntity
 {
-    public int Id { get; set; }
     public string Location { get; set; }
     public string Phone { get; set; }
     public string Mail { get; set; }

@@ -1,8 +1,9 @@
-﻿namespace SignalR.EntityLayer;
+﻿using SignalR.EntityLayer.Entities;
 
-public class Category
+namespace SignalR.EntityLayer;
+
+public class Category: BaseEntity
 {
-    public int Id { get; set; }
     public string Name { get; set; }
     public bool Status { get; set; }
 }

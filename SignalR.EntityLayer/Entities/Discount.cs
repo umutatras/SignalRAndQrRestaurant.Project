@@ -1,7 +1,8 @@
-﻿namespace SignalR.EntityLayer;
-public class Discount
+﻿using SignalR.EntityLayer.Entities;
+
+namespace SignalR.EntityLayer;
+public class Discount: BaseEntity
 {
-    public int Id { get; set; }
     public string Title { get; set; }
     public string ImageUrl { get; set; }
     public string Description { get; set; }

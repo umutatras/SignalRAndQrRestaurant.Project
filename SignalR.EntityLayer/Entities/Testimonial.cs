@@ -1,8 +1,9 @@
-﻿namespace SignalR.EntityLayer;
+﻿using SignalR.EntityLayer.Entities;
 
-public class Testimonial
+namespace SignalR.EntityLayer;
+
+public class Testimonial: BaseEntity
 {
-    public int Id { get; set; }
     public string Name { get; set; }
     public string Title { get; set; }
     public string Comment { get; set; }

@@ -1,7 +1,8 @@
-﻿namespace SignalR.EntityLayer;
-public class Feature
+﻿using SignalR.EntityLayer.Entities;
+
+namespace SignalR.EntityLayer;
+public class Feature: BaseEntity
 {
-    public int Id { get; set; }
     public string Title { get; set; }
     public string Description { get; set; }
 }
