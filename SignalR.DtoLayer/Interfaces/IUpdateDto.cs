@@ -1,6 +1,6 @@
 ﻿namespace SignalR.DtoLayer.Interfaces;
 
-public class IUpdateDto
+public interface IUpdateDto
 {
-    int Id { get; set; }
+    public int Id { get; set; }
 }
