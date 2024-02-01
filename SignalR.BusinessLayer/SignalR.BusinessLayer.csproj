@@ -10,4 +10,14 @@
     <ProjectReference Include="..\SignalR.DataAccessLayer\SignalR.DataAccessLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+    <Folder Include="DependencyResolvers\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Mappings\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="ValidationRules\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>

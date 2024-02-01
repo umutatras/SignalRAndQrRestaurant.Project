@@ -15,7 +15,22 @@ public class Repository<T> : IRepository<T> where T : BaseEntity
     {
         _context = context;
     }
-
+    public IQueryable<T> Query()
+    {
+        return _context.Set<T>().AsNoTracking().AsQueryable();
+    }
+    public IQueryable<T> Query(Expression<Func<T, bool>> predicate)
+    {
+        return _context.Set<T>().Where(predicate).AsNoTracking().AsQueryable();
+    }
+    public IQueryable<T> Query<TKey>(Expression<Func<T, TKey>> selector, OrderByType orderByType = OrderByType.ASC)
+    {
+        return orderByType == OrderByType.ASC ? _context.Set<T>().AsNoTracking().OrderBy(selector).AsQueryable() : _context.Set<T>().AsNoTracking().OrderByDescending(selector).AsQueryable();
+    }
+    public IQueryable<T> Query<TKey>(Expression<Func<T, bool>> predicate, Expression<Func<T, TKey>> selector, OrderByType orderByType = OrderByType.ASC)
+    {
+        return orderByType == OrderByType.ASC ? _context.Set<T>().Where(predicate).AsNoTracking().OrderBy(selector).AsQueryable() : _context.Set<T>().Where(predicate).AsNoTracking().OrderByDescending(selector).AsQueryable();
+    }
     public async Task<List<T>> GetAllAsync()
     {
         return await _context.Set<T>().AsNoTracking().ToListAsync();
