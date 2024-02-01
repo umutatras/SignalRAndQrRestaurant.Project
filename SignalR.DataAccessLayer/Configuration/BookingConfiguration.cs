@@ -8,6 +8,6 @@ public class BookingConfiguration : IEntityTypeConfiguration<About>
 {
     public void Configure(EntityTypeBuilder<About> builder)
     {
-        throw new NotImplementedException();
+        builder.HasIndex(e => e.Id);
     }
 }

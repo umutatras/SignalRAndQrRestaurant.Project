@@ -8,6 +8,6 @@ public class FeatureConfiguration : IEntityTypeConfiguration<Feature>
 {
     public void Configure(EntityTypeBuilder<Feature> builder)
     {
-        throw new NotImplementedException();
+        builder.HasIndex(e => e.Id);
     }
 }

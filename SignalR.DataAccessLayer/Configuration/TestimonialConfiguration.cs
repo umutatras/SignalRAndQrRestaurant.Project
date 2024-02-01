@@ -8,6 +8,6 @@ public class TestimonialConfiguration : IEntityTypeConfiguration<Testimonial>
 {
     public void Configure(EntityTypeBuilder<Testimonial> builder)
     {
-        throw new NotImplementedException();
+        builder.HasIndex(e => e.Id);
     }
 }

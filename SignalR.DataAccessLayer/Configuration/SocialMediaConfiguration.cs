@@ -8,6 +8,6 @@ public class SocialMediaConfiguration : IEntityTypeConfiguration<SocialMedia>
 {
     public void Configure(EntityTypeBuilder<SocialMedia> builder)
     {
-        throw new NotImplementedException();
+        builder.HasIndex(e => e.Id);
     }
 }

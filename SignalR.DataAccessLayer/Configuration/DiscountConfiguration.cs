@@ -8,6 +8,6 @@ public class DiscountConfiguration : IEntityTypeConfiguration<Discount>
 {
     public void Configure(EntityTypeBuilder<Discount> builder)
     {
-        throw new NotImplementedException();
+        builder.HasIndex(e => e.Id);
     }
 }
