@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SignalR.BusinessLayer.Helpers;
 using SignalR.BusinessLayer.Interfaces;
 using SignalR.BusinessLayer.Services;
-using SignalR.BusinessLayer.ValidationRules;
+using SignalR.BusinessLayer.ValidationRules.About;
 using SignalR.DataAccessLayer.Concrete;
 using SignalR.DataAccessLayer.UnitOfWork;
 using SignalR.DtoLayer.AbotDtos;
@@ -26,6 +26,8 @@ public static class DependencyExtension
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         services.AddTransient<IValidator<AboutCreateDto>, AboutCreateValidator>();
+        services.AddTransient<IValidator<AboutListDto>, AboutListValidator>();
+        services.AddTransient<IValidator<AboutUpdateDto>, AboutUpdateValidator>();
  
 
         services.AddScoped<IAboutService, AboutManager>();
