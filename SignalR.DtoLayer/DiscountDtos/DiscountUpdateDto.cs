@@ -2,7 +2,7 @@
 
 namespace SignalR.DtoLayer.DiscountDtos;
 
-public class DiscountListDto : IDto
+public class DiscountUpdateDto : IUpdateDto
 {
     public int Id { get; set; }
     public string Title { get; set; }

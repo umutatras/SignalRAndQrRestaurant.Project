@@ -2,7 +2,7 @@
 
 namespace SignalR.DtoLayer.SocialMediaDtos;
 
-public class SocialMediaListDto : IDto
+public class SocialMediaUpdateDto : IUpdateDto
 {
     public int Id { get; set; }
     public string Title { get; set; }

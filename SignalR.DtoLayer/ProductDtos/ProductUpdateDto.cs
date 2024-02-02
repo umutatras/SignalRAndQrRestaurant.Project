@@ -2,7 +2,7 @@
 
 namespace SignalR.DtoLayer.ProductDtos;
 
-public class ProductListDto : IDto
+public class ProductUpdateDto : IUpdateDto
 {
     public int Id { get; set; }
     public string Name { get; set; }
