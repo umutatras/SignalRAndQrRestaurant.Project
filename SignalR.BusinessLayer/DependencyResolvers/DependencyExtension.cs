@@ -1,7 +1,9 @@
-﻿using FluentValidation;
+﻿using AutoMapper;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SignalR.BusinessLayer.Helpers;
 using SignalR.BusinessLayer.Interfaces;
 using SignalR.BusinessLayer.Services;
 using SignalR.BusinessLayer.ValidationRules;
@@ -27,6 +29,13 @@ public static class DependencyExtension
  
 
         services.AddScoped<IAboutService, AboutManager>();
-     
+        var profiles = ProfileHelper.GetProfiles();
+        var configurationMapper = new MapperConfiguration(opt =>
+        {
+            opt.AddProfiles(profiles);
+        });
+        var mapper = configurationMapper.CreateMapper();
+        services.AddSingleton(mapper);
+
     }
 }
