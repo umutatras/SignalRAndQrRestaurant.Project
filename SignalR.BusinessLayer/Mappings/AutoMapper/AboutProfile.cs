@@ -9,5 +9,7 @@ public class AboutProfile : Profile
     public AboutProfile()
     {
         CreateMap<About, AboutCreateDto>().ReverseMap();
+        CreateMap<About, AboutListDto>().ReverseMap();
+        CreateMap<About, AboutUpdateDto>().ReverseMap();
     }
 }

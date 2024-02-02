@@ -10,6 +10,14 @@ public static class ProfileHelper
         return new List<Profile>
         {
             new AboutProfile(),
+            new BookProfile(),
+            new CategoryProfile(),
+            new ContactProfile(),
+            new DiscountProfile(),
+            new FeatureProfile(),
+            new ProductProfile(),
+            new SocialMediaProfile(),
+            new TestimonialProfile(),
         
         };
 
