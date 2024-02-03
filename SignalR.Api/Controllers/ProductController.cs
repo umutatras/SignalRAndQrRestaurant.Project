@@ -22,6 +22,12 @@ public class ProductController : ControllerBase
         return result;
     }
     [HttpGet]
+    public async Task<List<ProductListWithCategoryDto>> GetProductListWithCategory()
+    {
+        var result = await _productService.GetProductListWithCategory();
+        return result;
+    }
+    [HttpGet]
     public async Task<IResponse<ProductListDto>> GetById(int id)
     {
         var result = await _productService.GetByIdAsync<ProductListDto>(id);

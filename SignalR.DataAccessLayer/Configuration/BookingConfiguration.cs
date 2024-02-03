@@ -4,9 +4,9 @@ using SignalR.EntityLayer;
 
 namespace SignalR.DataAccessLayer.Configuration;
 
-public class BookingConfiguration : IEntityTypeConfiguration<About>
+public class BookingConfiguration : IEntityTypeConfiguration<Booking>
 {
-    public void Configure(EntityTypeBuilder<About> builder)
+    public void Configure(EntityTypeBuilder<Booking> builder)
     {
         builder.HasIndex(e => e.Id);
     }
