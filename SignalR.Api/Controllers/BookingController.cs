@@ -8,6 +8,5 @@ namespace SignalR.Api.Controllers
     [ApiController]
     public class BookingController : ControllerBase
     {
-        private readonly IBookingService _bookingService;
     }
 }
