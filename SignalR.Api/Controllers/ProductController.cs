@@ -16,7 +16,7 @@ public class ProductController : ControllerBase
         _productService = productService;
     }
     [HttpGet]
-    public async Task<IResponse<List<ProductListDto>>> GetAboutList()
+    public async Task<IResponse<List<ProductListDto>>> GetProductList()
     {
         var result = await _productService.GetAllAsync();
         return result;

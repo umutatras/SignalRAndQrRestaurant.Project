@@ -16,7 +16,7 @@ public class TestimonialController : ControllerBase
         _testimonialService = testimonialService;
     }
     [HttpGet]
-    public async Task<IResponse<List<TestimonialListDto>>> GetAboutList()
+    public async Task<IResponse<List<TestimonialListDto>>> GetTestimonialList()
     {
         var result = await _testimonialService.GetAllAsync();
         return result;

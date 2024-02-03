@@ -16,7 +16,7 @@ public class FeatureController : ControllerBase
         _featureService = featureService;
     }
     [HttpGet]
-    public async Task<IResponse<List<FeatureListDto>>> GetAboutList()
+    public async Task<IResponse<List<FeatureListDto>>> GetFeatureList()
     {
         var result = await _featureService.GetAllAsync();
         return result;

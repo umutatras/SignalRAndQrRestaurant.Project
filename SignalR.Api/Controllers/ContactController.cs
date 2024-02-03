@@ -16,7 +16,7 @@ public class ContactController : ControllerBase
         _contactService = contactService;
     }
     [HttpGet]
-    public async Task<IResponse<List<ContactListDto>>> GetAboutList()
+    public async Task<IResponse<List<ContactListDto>>> GetContactList()
     {
         var result = await _contactService.GetAllAsync();
         return result;

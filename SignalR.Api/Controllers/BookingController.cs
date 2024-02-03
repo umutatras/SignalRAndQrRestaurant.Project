@@ -16,7 +16,7 @@ public class BookingController : ControllerBase
         _bookingService = bookingService;
     }
     [HttpGet]
-    public async Task<IResponse<List<BookingListDto>>> GetAboutList()
+    public async Task<IResponse<List<BookingListDto>>> GetBookingList()
     {
         var result = await _bookingService.GetAllAsync();
         return result;

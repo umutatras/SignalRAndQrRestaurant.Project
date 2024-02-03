@@ -16,7 +16,7 @@ public class SocialMediaController : ControllerBase
         _socialMediaService = socialMediaService;
     }
     [HttpGet]
-    public async Task<IResponse<List<SocialMediaListDto>>> GetAboutList()
+    public async Task<IResponse<List<SocialMediaListDto>>> GetSocialMediaList()
     {
         var result = await _socialMediaService.GetAllAsync();
         return result;

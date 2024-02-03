@@ -16,7 +16,7 @@ public class DiscountController : ControllerBase
         _discountService = discountService;
     }
     [HttpGet]
-    public async Task<IResponse<List<DiscountListDto>>> GetAboutList()
+    public async Task<IResponse<List<DiscountListDto>>> GetDiscountList()
     {
         var result = await _discountService.GetAllAsync();
         return result;
