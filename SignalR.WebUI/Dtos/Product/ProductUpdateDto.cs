@@ -1,8 +1,6 @@
-﻿using SignalR.DtoLayer.Interfaces;
+﻿namespace SignalR.WebUI.Dtos;
 
-namespace SignalR.DtoLayer.ProductDtos;
-
-public class ProductListWithCategoryDto:IDto
+public class ProductUpdateDto
 {
     public int Id { get; set; }
     public string Name { get; set; }
@@ -10,6 +8,5 @@ public class ProductListWithCategoryDto:IDto
     public decimal Price { get; set; }
     public string ImageUrl { get; set; }
     public bool Status { get; set; }
-    public string CategoryName { get; set; }
     public int CategoryId { get; set; }
 }

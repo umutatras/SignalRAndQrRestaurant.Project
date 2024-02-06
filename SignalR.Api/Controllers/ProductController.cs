@@ -28,6 +28,12 @@ public class ProductController : ControllerBase
         return result;
     }
     [HttpGet]
+    public async Task<ProductListWithCategoryDto> SingleGetProductListWithCategory(int id)
+    {
+        var result = await _productService.SingleGetProductListWithCategory(id);
+        return result;
+    }
+    [HttpGet]
     public async Task<IResponse<ProductListDto>> GetById(int id)
     {
         var result = await _productService.GetByIdAsync<ProductListDto>(id);

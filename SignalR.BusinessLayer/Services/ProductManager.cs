@@ -27,4 +27,13 @@ public class ProductManager : ServiceManager<ProductCreateDto, ProductUpdateDto,
         var result= _mapper.Map<List<ProductListWithCategoryDto>>(data);
         return result;
     }
+    public async Task<ProductListWithCategoryDto> SingleGetProductListWithCategory(int id)
+    {
+        var data = await _unitOfWork.GetRepository<Product>().Query()
+            .Where(x=>x.Id==id)
+            .Include(i => i.Category)
+            .FirstOrDefaultAsync();
+        var result = _mapper.Map<ProductListWithCategoryDto>(data);
+        return result;
+    }
 }

@@ -17,7 +17,6 @@ public class CategoryController : Controller
     public async Task<IActionResult> Index()
     {
         var client = _httpClientFactory.CreateClient();
-        var data = new List<CategoryDto>();
         var responseMessage = await client.GetAsync("https://localhost:7250/api/category/GetCategoryList");
         if (responseMessage.IsSuccessStatusCode)
         {
