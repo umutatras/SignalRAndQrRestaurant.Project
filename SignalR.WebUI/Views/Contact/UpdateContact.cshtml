@@ -1,0 +1,46 @@
+﻿@model ContactUpdateDto
+@{
+    ViewData["Title"] = "UpdateContact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">İletişim İşlemleri</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post" asp-action="UpdateContact" asp-controller="Contact">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">İletişim Güncelle</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="footerDescription">İletişim Açıklama Giriniz</label>
+                                <input asp-for="FooterDescription" type="text" class="form-control" id="footerDescription">
+                            </div>
+                            <div class="form-group">
+                                <label for="mail">Mail Giriniz</label>
+                                <input asp-for="Mail" type="text" class="form-control" id="mail">
+                            </div>
+                            <div class="form-group">
+                                <label for="Location">Lokasyon Giriniz</label>
+                                <input asp-for="Location" type="text" class="form-control" id="Location">
+                            </div>
+                            <div class="form-group">
+                                <label for="Phone">Telefon Giriniz</label>
+                                <input asp-for="Phone" type="text" class="form-control" id="Phone">
+                            </div>
+                            <div class="card-action">
+                                <button class="btn btn-primary">İletişim Güncelle</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
