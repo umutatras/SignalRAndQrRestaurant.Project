@@ -18,6 +18,8 @@ public static class ProfileHelper
             new ProductProfile(),
             new SocialMediaProfile(),
             new TestimonialProfile(),
+            new OrderProfile(),
+            new OrderDetailProfile(),
         
         };
 

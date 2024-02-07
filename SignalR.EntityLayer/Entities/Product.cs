@@ -13,5 +13,6 @@ public class Product: BaseEntity
 
     #region NavigationProperty
     public virtual Category Category { get; set; }
+    public virtual List<OrderDetail> OrderDetails { get; set; }
     #endregion
 }

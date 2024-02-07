@@ -12,6 +12,8 @@ using SignalR.BusinessLayer.ValidationRules.Category;
 using SignalR.BusinessLayer.ValidationRules.Contact;
 using SignalR.BusinessLayer.ValidationRules.Discount;
 using SignalR.BusinessLayer.ValidationRules.Feature;
+using SignalR.BusinessLayer.ValidationRules.Order;
+using SignalR.BusinessLayer.ValidationRules.OrderDetail;
 using SignalR.BusinessLayer.ValidationRules.Product;
 using SignalR.BusinessLayer.ValidationRules.SocialMedia;
 using SignalR.BusinessLayer.ValidationRules.Testimonial;
@@ -23,6 +25,8 @@ using SignalR.DtoLayer.CategoryDtos;
 using SignalR.DtoLayer.ContactDtos;
 using SignalR.DtoLayer.DiscountDtos;
 using SignalR.DtoLayer.FeatureDtos;
+using SignalR.DtoLayer.Order;
+using SignalR.DtoLayer.OrderDetail;
 using SignalR.DtoLayer.ProductDtos;
 using SignalR.DtoLayer.SocialMediaDtos;
 using SignalR.DtoLayer.TestimonialDtos;
@@ -77,6 +81,14 @@ public static class DependencyExtension
         services.AddTransient<IValidator<TestimonialListDto>, TestimonialListValidator>();
         services.AddTransient<IValidator<TestimonialUpdateDto>, TestimonialUpdateValidator>();
 
+        services.AddTransient<IValidator<OrderCreateDto>, OrderCreateValidator>();
+        services.AddTransient<IValidator<OrderListDto>, OrderListValidator>();
+        services.AddTransient<IValidator<OrderUpdateDto>, OrderUpdateValidator>();
+
+        services.AddTransient<IValidator<OrderDetailCreateDto>, OrderDetailCreateValidator>();
+        services.AddTransient<IValidator<OrderDetailListDto>, OrderDetailListValidator>();
+        services.AddTransient<IValidator<OrderDetailUpdateDto>, OrderDetailUpdateValidator>();
+
 
         services.AddScoped<IAboutService, AboutManager>();
         services.AddScoped<IBookingService, BookingManager>();
@@ -87,6 +99,8 @@ public static class DependencyExtension
         services.AddScoped<IProductService, ProductManager>();
         services.AddScoped<ISocialMediaService, SocialMediaManager>();
         services.AddScoped<ITestimonialService, TestimonialManager>();
+        services.AddScoped<IOrderService, OrderManager>();
+        services.AddScoped<IOrderDetailService, OrderDetailManager>();
 
 
         var profiles = ProfileHelper.GetProfiles();

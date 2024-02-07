@@ -10,5 +10,6 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
     {
         builder.HasIndex(e => e.Id);
         builder.HasOne(e => e.Category).WithMany(e => e.Products).HasForeignKey(e => e.CategoryId);
+        builder.HasMany(e => e.OrderDetails).WithOne(e => e.Product).HasForeignKey(e => e.ProductId);
     }
 }
