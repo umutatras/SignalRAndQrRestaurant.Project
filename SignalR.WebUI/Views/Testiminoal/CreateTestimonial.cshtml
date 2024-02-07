@@ -1,0 +1,44 @@
+﻿@model TestimonialCreateDto
+@{
+    ViewData["Title"] = "CreateTestimonial";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Sosyal Medya İşlemleri</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post" asp-action="CreateTestimonial" asp-controller="Testiminoal">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Yeni Sosyal Medya Girişi</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Title">Sosyal Medya Başlığı Giriniz</label>
+                                <input asp-for="Title" type="text" class="form-control" id="Title">
+                            </div>
+                            <div class="form-group">
+                                <label for="Name">Ad Giriniz</label>
+                                <input asp-for="Name" type="text" class="form-control" id="Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="ImageUrl">Resim Giriniz</label>
+                                <input asp-for="ImageUrl" type="text" class="form-control" id="ImageUrl">
+                            </div>
+                            <div class="form-group">
+                                <label for="Comment">Yorum Giriniz</label>
+                                <input asp-for="Comment" type="text" class="form-control" id="Comment">
+                            </div>                                        
+                            <div class="card-action">
+                                <button class="btn btn-primary">Sosyal Medya Ekle</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
