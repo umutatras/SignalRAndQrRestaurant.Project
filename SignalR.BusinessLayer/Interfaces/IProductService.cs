@@ -8,4 +8,12 @@ public interface IProductService : IService<ProductCreateDto, ProductUpdateDto, 
 {
     Task<List<ProductListWithCategoryDto>> GetProductListWithCategory();
     Task<ProductListWithCategoryDto> SingleGetProductListWithCategory(int id);
+    int ProductCount();
+    int ProductCountByCategoryNameDrink();
+    int ProductCountByCategoryNameHamburger();
+
+    decimal ProductPriveAvg();
+    string ProductNameMinPrice();
+    string ProductNameMaxPrice();
+    decimal ProductPriceByHamburger();
 }

@@ -23,6 +23,24 @@ public class OrderController : ControllerBase
         return result;
     }
     [HttpGet]
+    public int TotalOrderCount()
+    {
+        var result =  _orderService.TotalOrderCount();
+        return result;
+    } 
+    [HttpGet]
+    public decimal EndOrderPrice()
+    {
+        var result =  _orderService.EndOrderPrice();
+        return result;
+    }
+    [HttpGet]
+    public int ActiveOrderCount()
+    {
+        var result =  _orderService.ActiveOrderCount();
+        return result;
+    }
+    [HttpGet]
     public async Task<IResponse<OrderListDto>> GetById(int id)
     {
         var result = await _orderService.GetByIdAsync<OrderListDto>(id);

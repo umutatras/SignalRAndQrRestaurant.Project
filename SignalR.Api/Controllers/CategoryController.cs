@@ -22,6 +22,24 @@ public class CategoryController : ControllerBase
         return result;
     }
     [HttpGet]
+    public int CategoryCount()
+    {
+        var result =  _categoryService.Categorycount();
+        return result;
+    }
+    [HttpGet]
+    public int EnabledCategoryCount()
+    {
+        var result = _categoryService.EnabledCategoryCount();
+        return result;
+    }
+    [HttpGet]
+    public int DisabledCategoryCount()
+    {
+        var result = _categoryService.DisabledCategoryCount();
+        return result;
+    }
+    [HttpGet]
     public async Task<IResponse<CategoryListDto>> GetById(int id)
     {
         var result = await _categoryService.GetByIdAsync<CategoryListDto>(id);

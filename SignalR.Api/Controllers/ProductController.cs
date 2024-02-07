@@ -22,6 +22,48 @@ public class ProductController : ControllerBase
         return result;
     }
     [HttpGet]
+    public int ProductCount()
+    {
+        var result = _productService.ProductCount();
+        return result;
+    }
+    [HttpGet]
+    public decimal ProductPriveAvg()
+    {
+        var result = _productService.ProductPriveAvg();
+        return result;
+    } 
+    [HttpGet]
+    public decimal ProductPriceByHamburger()
+    {
+        var result = _productService.ProductPriceByHamburger();
+        return result;
+    }
+    [HttpGet]
+    public string ProductNameMinPrice()
+    {
+        var result = _productService.ProductNameMinPrice();
+        return result;
+    }
+    [HttpGet]
+    public string ProductNameMaxPrice()
+    {
+        var result = _productService.ProductNameMaxPrice();
+        return result;
+    }
+    [HttpGet]
+    public int ProductCountByCategoryNameHamburger()
+    {
+        var result = _productService.ProductCountByCategoryNameHamburger();
+        return result;
+    }
+    [HttpGet]
+    public int ProductCountByCategoryNameDrink()
+    {
+        var result = _productService.ProductCountByCategoryNameDrink();
+        return result;
+    }
+    [HttpGet]
     public async Task<List<ProductListWithCategoryDto>> GetProductListWithCategory()
     {
         var result = await _productService.GetProductListWithCategory();
