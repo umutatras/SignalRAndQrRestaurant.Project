@@ -1,0 +1,59 @@
+﻿@model List<SocialMediaListDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Sosyal Medya İşlemleri</h4>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Sosyal Medya Listesi</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-sub">
+                            Sosyal Medya İle İlgili İşlemleri Aşağıdan Gerçekleştirebilirsiniz :
+                        </div>
+                        <table class="table mt-3">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Başlık Adı</th>
+                                    <th scope="col">İkon</th>
+                                    <th scope="col">Adres</th>
+                                    <th scope="col">Sil</th>
+                                    <th scope="col">Güncelle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Id</td>
+                                        <td>@item.Title</td>
+                                        <td>@item.Icon</td>
+                                        <td>@item.Url</td>
+                                        <td>
+                                            <a href="/SocialMedia/DeleteSocialMedia/@item.Id"
+                                               class="btn btn-danger">Sil</a>
+                                        </td>
+                                        <td><a href="/SocialMedia/UpdateSocialMedia/@item.Id" class="btn btn-warning">Güncelle</a></td>
+
+                                    </tr>
+                                }
+
+
+                            </tbody>
+                        </table>
+                        <a href="/SocialMedia/CreateSocialMedia" class="btn btn-primary">Yeni Sosyal Medya Girişi</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
