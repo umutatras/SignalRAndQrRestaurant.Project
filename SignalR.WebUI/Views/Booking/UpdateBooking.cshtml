@@ -1,0 +1,50 @@
+﻿@model BookingUpdateDto
+@{
+    ViewData["Title"] = "UpdateBooking";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Rezervasyon İşlemleri</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post" asp-action="UpdateBooking" asp-controller="Booking">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title"> Rezervasyon Düzenlemesi</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="name">Rezervasyon Adı Giriniz</label>
+                                <input asp-for="Name" type="text" class="form-control" id="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="rezervasyonDate">Rezervasyon Tarihi Giriniz</label>
+                                <input asp-for="CreateDate" type="date" class="form-control" id="rezervasyonDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="personCount">Kişi Sayısı Giriniz</label>
+                                <input asp-for="PersonCount" type="number" class="form-control" id="personCount">
+                            </div>
+                            <div class="form-group">
+                                <label for="phonenumber">Telefon Giriniz</label>
+                                <input asp-for="Phone" type="text" class="form-control" id="phonenumber">
+                            </div>
+                            <div class="form-group">
+                                <label for="mail">Mail Giriniz</label>
+                                <input asp-for="Mail" type="text" class="form-control" id="mail">
+                            </div>
+                            <div class="card-action">
+                                <button class="btn btn-primary">Rezervasyon Güncelle</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
