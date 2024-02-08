@@ -15,7 +15,7 @@ public class MoneyCaseController : Controller
     }
 
     [HttpGet]
-    public async Task<IResponse<List<MoneyCaseListDto>>> GetContactList()
+    public async Task<IResponse<List<MoneyCaseListDto>>> GetMoneyCaseList()
     {
         var result = await _moneyCaseService.GetAllAsync();
         return result;
