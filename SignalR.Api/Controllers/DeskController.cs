@@ -16,9 +16,15 @@ public class DeskController : ControllerBase
         _deskService = deskService;
     }
     [HttpGet]
-    public async Task<IResponse<List<DeskListDto>>> GetContactList()
+    public async Task<IResponse<List<DeskListDto>>> GetDeskList()
     {
         var result = await _deskService.GetAllAsync();
+        return result;
+    } 
+    [HttpGet]
+    public int MenuTableCount()
+    {
+        var result =  _deskService.MenuTableCount();
         return result;
     }
     [HttpGet]

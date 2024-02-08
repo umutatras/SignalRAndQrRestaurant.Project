@@ -14,4 +14,10 @@ public class DeskManager : ServiceManager<DeskCreateDto, DeskUpdateDto, DeskList
     {
         _unitOfWork = unitOfWork;
     }
+
+    public int MenuTableCount()
+    {
+        var result = _unitOfWork.GetRepository<Desk>().Query().Count();
+        return result;
+    }
 }

@@ -5,4 +5,5 @@ namespace SignalR.BusinessLayer.Interfaces;
 
 public interface IDeskService : IService<DeskCreateDto, DeskUpdateDto, DeskListDto, Desk>
 {
+    int MenuTableCount();
 }
