@@ -10,6 +10,7 @@ using SignalR.BusinessLayer.ValidationRules.About;
 using SignalR.BusinessLayer.ValidationRules.Booking;
 using SignalR.BusinessLayer.ValidationRules.Category;
 using SignalR.BusinessLayer.ValidationRules.Contact;
+using SignalR.BusinessLayer.ValidationRules.Desk;
 using SignalR.BusinessLayer.ValidationRules.Discount;
 using SignalR.BusinessLayer.ValidationRules.Feature;
 using SignalR.BusinessLayer.ValidationRules.MoneyCase;
@@ -24,6 +25,7 @@ using SignalR.DtoLayer.AbotDtos;
 using SignalR.DtoLayer.BookingDtos;
 using SignalR.DtoLayer.CategoryDtos;
 using SignalR.DtoLayer.ContactDtos;
+using SignalR.DtoLayer.DeskDtos;
 using SignalR.DtoLayer.DiscountDtos;
 using SignalR.DtoLayer.FeatureDtos;
 using SignalR.DtoLayer.MoneyCase;
@@ -95,6 +97,10 @@ public static class DependencyExtension
         services.AddTransient<IValidator<MoneyCaseListDto>, MoneyCaseListValidator>();
         services.AddTransient<IValidator<MoneyCaseUpdateDto>, MoneyCaseUpdateValidator>();
 
+        services.AddTransient<IValidator<DeskCreateDto>, DeskCreateValidator>();
+        services.AddTransient<IValidator<DeskListDto>, DeskListValidator>();
+        services.AddTransient<IValidator<DeskUpdateDto>, DeskUpdateValidator>();
+
 
         services.AddScoped<IAboutService, AboutManager>();
         services.AddScoped<IBookingService, BookingManager>();
@@ -108,6 +114,7 @@ public static class DependencyExtension
         services.AddScoped<IOrderService, OrderManager>();
         services.AddScoped<IOrderDetailService, OrderDetailManager>();
         services.AddScoped<IMoneyCaseService, MoneyCaseManager>();
+        services.AddScoped<IDeskService, DeskManager>();
 
 
         var profiles = ProfileHelper.GetProfiles();
