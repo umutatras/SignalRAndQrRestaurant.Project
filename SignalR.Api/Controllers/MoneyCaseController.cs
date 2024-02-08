@@ -5,6 +5,8 @@ using SignalR.DtoLayer.MoneyCase;
 
 namespace SignalR.Api.Controllers;
 
+[Route("api/[controller]/[action]")]
+[ApiController]
 public class MoneyCaseController : Controller
 {
     private readonly IMoneyCaseService _moneyCaseService;
