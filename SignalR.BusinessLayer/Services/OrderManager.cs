@@ -39,9 +39,13 @@ public class OrderManager : ServiceManager<OrderCreateDto, OrderUpdateDto, Order
 
     public decimal TodayTotalPrice()
     {
+        DateTime currentDate = DateTime.Now.Date; 
         var result = _unitOfWork.GetRepository<Order>()
             .Query()
-            .Where(x => x.Date.ToShortDateString() == DateTime.Now.ToShortDateString()).Sum(x => x.TotalPrice);
+            .Where(x => x.Date.Year == currentDate.Year &&
+                        x.Date.Month == currentDate.Month &&
+                        x.Date.Day == currentDate.Day)
+            .Sum(x => x.TotalPrice);
         return result;
     }
 }

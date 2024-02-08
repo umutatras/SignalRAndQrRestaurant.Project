@@ -78,9 +78,15 @@ public class ProductManager : ServiceManager<ProductCreateDto, ProductUpdateDto,
     {
         var result = _unitOfWork.GetRepository<Product>()
             .Query()
-            .Where(f => f.CategoryId == (_unitOfWork.GetRepository<Category>().Query().Where(y => y.Name == "İçecek").Select(s => s.Id).FirstOrDefault()))
-            .Average(a=>a.Price);
-        return result;
+            .Where(f => f.Category.Name == "Hamburger")
+            .Select(x=>x.Price)
+            .ToList();
+        decimal price = 0;
+        if (result.Count > 0)
+        {
+            price = result.Sum() / result.Count();
+        }         
+        return price;
     }
 
     public decimal ProductPriveAvg()

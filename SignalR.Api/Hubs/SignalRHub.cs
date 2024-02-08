@@ -6,10 +6,17 @@ namespace SignalR.Api.Hubs;
 public class SignalRHub : Hub
 {
     private readonly ICategoryService _categoryService;
-
-    public SignalRHub(ICategoryService categoryService)
+    private readonly IProductService _productService;
+    private readonly IOrderService _orderService;
+    private readonly IMoneyCaseService _moneyCaseService;
+    private readonly IDeskService _deskService;
+    public SignalRHub(ICategoryService categoryService, IProductService productService, IOrderService orderService, IMoneyCaseService moneyCaseService, IDeskService deskService)
     {
         _categoryService = categoryService;
+        _productService = productService;
+        _orderService = orderService;
+        _moneyCaseService = moneyCaseService;
+        _deskService = deskService;
     }
 
     public async Task SendCategoryCount()
@@ -17,5 +24,60 @@ public class SignalRHub : Hub
         var value=_categoryService.GetAllAsync();
         var count=value.Result.Data.Count;
         await Clients.All.SendAsync("ReceiveCategoryCount",count);
+    }
+    public async Task SendProductCount()
+    {
+        var value = _productService.GetAllAsync();
+        var count = value.Result.Data.Count;
+        await Clients.All.SendAsync("ReceiveProductCount", count);
+    }
+    public async Task SendActiveCategoryCount()
+    {
+        var count = _categoryService.EnabledCategoryCount();
+     
+        await Clients.All.SendAsync("ReceiveActiveCategoryCount", count);
+    }
+    public async Task SendPassiveCategoryCount()
+    {
+        var count = _categoryService.DisabledCategoryCount();
+
+        await Clients.All.SendAsync("ReceivePassiveCategoryCount", count);
+    }
+    public async Task SendProductByCategoryName()
+    {
+        try
+        {
+            var count1 = _productService.ProductCountByCategoryNameHamburger();
+            var count2 = _productService.ProductCountByCategoryNameDrink();
+            var count3 = _productService.ProductPriveAvg();
+            var count4 = _productService.ProductNameMaxPrice();
+            var count5 = _productService.ProductNameMinPrice();
+            var count6 = _productService.ProductPriceByHamburger();
+            var value = _orderService.TotalOrderCount();
+            var value2 = _orderService.TodayTotalPrice();
+            var value3=_orderService.ActiveOrderCount();
+            var value4=_orderService.EndOrderPrice();
+            var value5= _moneyCaseService.TotalMoneyCaseAmount();
+            var value6= _deskService.MenuTableCount();
+            await Clients.All.SendAsync("ReceiveProductByCategoryNameHamburger", count1);
+            await Clients.All.SendAsync("ReceiveProductByCategoryNameDrink", count2);
+            await Clients.All.SendAsync("ReceiveProductAvgPrice", count3);
+            await Clients.All.SendAsync("ReceiveProductNameMaxPrice", count4);
+            await Clients.All.SendAsync("ReceiveProductNameMinPrice", count5);
+            await Clients.All.SendAsync("ReceiveProductPriceByHamburger", count6);
+            await Clients.All.SendAsync("ReceiveTotalOrderCount", value);
+            await Clients.All.SendAsync("ReceiveTodayTotalPrice", value2);
+            await Clients.All.SendAsync("ReceiveActiveOrderCount", value3);
+            await Clients.All.SendAsync("ReceiveEndOrderPrice", value4);
+            await Clients.All.SendAsync("ReceiveTotalMoneyCaseAmount", value5);
+            await Clients.All.SendAsync("ReceiveMenuTableCount", value6);
+
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+    
     }
 }
