@@ -20,6 +20,7 @@ public static class ProfileHelper
             new TestimonialProfile(),
             new OrderProfile(),
             new OrderDetailProfile(),
+            new MoneyCasesProfile(),
         
         };
 
