@@ -21,6 +21,12 @@ public class OrderController : ControllerBase
     {
         var result = await _orderService.GetAllAsync();
         return result;
+    } 
+    [HttpGet]
+    public decimal TodayTotalPrice()
+    {
+        var result =  _orderService.TodayTotalPrice();
+        return result;
     }
     [HttpGet]
     public int TotalOrderCount()

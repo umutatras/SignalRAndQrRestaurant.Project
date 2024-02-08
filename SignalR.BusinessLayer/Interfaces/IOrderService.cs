@@ -8,4 +8,5 @@ public interface IOrderService : IService<OrderCreateDto, OrderUpdateDto, OrderL
     int TotalOrderCount();
     int ActiveOrderCount();
     decimal EndOrderPrice();
+    decimal TodayTotalPrice();
 }

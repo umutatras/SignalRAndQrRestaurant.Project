@@ -36,4 +36,12 @@ public class OrderManager : ServiceManager<OrderCreateDto, OrderUpdateDto, Order
             .FirstOrDefault().TotalPrice;
         return result;
     }
+
+    public decimal TodayTotalPrice()
+    {
+        var result = _unitOfWork.GetRepository<Order>()
+            .Query()
+            .Where(x => x.Date.ToShortDateString() == DateTime.Now.ToShortDateString()).Sum(x => x.TotalPrice);
+        return result;
+    }
 }
