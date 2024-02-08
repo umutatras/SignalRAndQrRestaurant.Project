@@ -80,4 +80,14 @@ public class SignalRHub : Hub
         }
     
     }
+    public async Task SendProgress()
+    {
+        var count = _moneyCaseService.TotalMoneyCaseAmount();
+        var value=_orderService.ActiveOrderCount();
+        var value2 = _deskService.MenuTableCount();
+
+        await Clients.All.SendAsync("ReceiveTotalMoneyCaseAmount", count);
+        await Clients.All.SendAsync("ReceiveActiveOrderCount", value);
+        await Clients.All.SendAsync("ReceiveMenuTableCount", value2);
+    }
 }
