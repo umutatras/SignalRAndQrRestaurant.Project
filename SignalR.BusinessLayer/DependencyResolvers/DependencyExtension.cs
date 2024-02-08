@@ -17,6 +17,7 @@ using SignalR.BusinessLayer.ValidationRules.MoneyCase;
 using SignalR.BusinessLayer.ValidationRules.Order;
 using SignalR.BusinessLayer.ValidationRules.OrderDetail;
 using SignalR.BusinessLayer.ValidationRules.Product;
+using SignalR.BusinessLayer.ValidationRules.Slider;
 using SignalR.BusinessLayer.ValidationRules.SocialMedia;
 using SignalR.BusinessLayer.ValidationRules.Testimonial;
 using SignalR.DataAccessLayer.Concrete;
@@ -32,6 +33,7 @@ using SignalR.DtoLayer.MoneyCase;
 using SignalR.DtoLayer.Order;
 using SignalR.DtoLayer.OrderDetail;
 using SignalR.DtoLayer.ProductDtos;
+using SignalR.DtoLayer.SliderDtos;
 using SignalR.DtoLayer.SocialMediaDtos;
 using SignalR.DtoLayer.TestimonialDtos;
 
@@ -101,6 +103,10 @@ public static class DependencyExtension
         services.AddTransient<IValidator<DeskListDto>, DeskListValidator>();
         services.AddTransient<IValidator<DeskUpdateDto>, DeskUpdateValidator>();
 
+        services.AddTransient<IValidator<SliderCreateDto>, SliderCreateValidator>();
+        services.AddTransient<IValidator<SliderListDto>, SliderListValidator>();
+        services.AddTransient<IValidator<SliderUpdateDto>, SliderUpdateValidator>();
+
 
         services.AddScoped<IAboutService, AboutManager>();
         services.AddScoped<IBookingService, BookingManager>();
@@ -115,6 +121,7 @@ public static class DependencyExtension
         services.AddScoped<IOrderDetailService, OrderDetailManager>();
         services.AddScoped<IMoneyCaseService, MoneyCaseManager>();
         services.AddScoped<IDeskService, DeskManager>();
+        services.AddScoped<ISliderService, SliderManager>();
 
 
         var profiles = ProfileHelper.GetProfiles();

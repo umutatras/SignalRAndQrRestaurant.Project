@@ -22,6 +22,7 @@ public static class ProfileHelper
             new OrderDetailProfile(),
             new MoneyCasesProfile(),
             new DeskProfile(),
+            new SliderProfile(),
         
         };
 
