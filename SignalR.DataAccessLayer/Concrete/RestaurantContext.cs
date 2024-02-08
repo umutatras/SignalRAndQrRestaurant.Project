@@ -29,4 +29,5 @@ public class RestaurantContext:DbContext
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderDetail> OrderDetails { get; set; }
     public DbSet<MoneyCase> MoneyCases { get; set; }
+    public DbSet<Desk> Desks { get; set; }
 }
