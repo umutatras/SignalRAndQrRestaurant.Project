@@ -30,4 +30,5 @@ public class RestaurantContext:DbContext
     public DbSet<OrderDetail> OrderDetails { get; set; }
     public DbSet<MoneyCase> MoneyCases { get; set; }
     public DbSet<Desk> Desks { get; set; }
+    public DbSet<Slider> Sliders { get; set; }
 }
