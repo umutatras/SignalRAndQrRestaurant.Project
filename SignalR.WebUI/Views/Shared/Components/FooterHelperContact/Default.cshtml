@@ -1,0 +1,34 @@
+﻿@model List<ContactListDto>
+
+    <div class="col-md-4 footer-col">
+        <div class="footer_contact">
+            <h4>
+               Bizimle İletişime Geç
+            </h4>
+            <div class="contact_link_box">
+                @foreach (var item in Model)
+                {
+                    <a href="">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <span>
+                            @item.Location
+                        </span>
+                    </a>
+               
+
+                <a href="">
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                    <span>
+                        Telefon @item.Phone
+                    </span>
+                </a>
+                <a href="">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <span>
+                       @item.Mail
+                    </span>
+                </a>
+                }
+            </div>
+        </div>
+    </div>
