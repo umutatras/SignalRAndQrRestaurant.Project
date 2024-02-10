@@ -7,6 +7,7 @@ using SignalR.BusinessLayer.Helpers;
 using SignalR.BusinessLayer.Interfaces;
 using SignalR.BusinessLayer.Services;
 using SignalR.BusinessLayer.ValidationRules.About;
+using SignalR.BusinessLayer.ValidationRules.Basket;
 using SignalR.BusinessLayer.ValidationRules.Booking;
 using SignalR.BusinessLayer.ValidationRules.Category;
 using SignalR.BusinessLayer.ValidationRules.Contact;
@@ -23,6 +24,7 @@ using SignalR.BusinessLayer.ValidationRules.Testimonial;
 using SignalR.DataAccessLayer.Concrete;
 using SignalR.DataAccessLayer.UnitOfWork;
 using SignalR.DtoLayer.AbotDtos;
+using SignalR.DtoLayer.BasketDtos;
 using SignalR.DtoLayer.BookingDtos;
 using SignalR.DtoLayer.CategoryDtos;
 using SignalR.DtoLayer.ContactDtos;
@@ -107,6 +109,9 @@ public static class DependencyExtension
         services.AddTransient<IValidator<SliderListDto>, SliderListValidator>();
         services.AddTransient<IValidator<SliderUpdateDto>, SliderUpdateValidator>();
 
+        services.AddTransient<IValidator<BasketCreateDto>, BasketCreateValidator>();
+        services.AddTransient<IValidator<BasketListDto>, BasketListValidator>();
+        services.AddTransient<IValidator<BasketUpdateDto>, BasketUpdateValidator>();
 
         services.AddScoped<IAboutService, AboutManager>();
         services.AddScoped<IBookingService, BookingManager>();
@@ -122,6 +127,7 @@ public static class DependencyExtension
         services.AddScoped<IMoneyCaseService, MoneyCaseManager>();
         services.AddScoped<IDeskService, DeskManager>();
         services.AddScoped<ISliderService, SliderManager>();
+        services.AddScoped<IBasketService, BasketManager>();
 
 
         var profiles = ProfileHelper.GetProfiles();

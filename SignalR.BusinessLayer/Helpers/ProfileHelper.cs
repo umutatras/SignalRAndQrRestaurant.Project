@@ -23,6 +23,7 @@ public static class ProfileHelper
             new MoneyCasesProfile(),
             new DeskProfile(),
             new SliderProfile(),
+            new BasketProfile(),
         
         };
 
