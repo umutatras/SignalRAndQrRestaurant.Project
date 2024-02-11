@@ -1,7 +1,11 @@
-﻿@model List<BasketListDto>
+﻿@model List<BasketListProductNameDto>
 
 @{
     Layout = null;
+    var count = 0;
+    decimal baskeTotalPrice =0;
+    decimal basketTotalPriceWithTax = 0;
+    
 }
 
 <!DOCTYPE html>
@@ -18,8 +22,8 @@
         <div class="row px-xl-5">
             <div class="col-12">
                 <nav class="breadcrumb bg-light mb-30">
-                    <a class="breadcrumb-item text-white" href="/Default/Index">Anasayfa</a>
-                    <a class="breadcrumb-item text-white" href="/Menu/Index">Menü</a>
+                    <a class="breadcrumb-item text-dark" href="/Default/Index">Anasayfa</a>
+                    <a class="breadcrumb-item text-dark" href="/Menu/Index">Menü</a>
                     <span class="breadcrumb-item active">Sepetiniz</span>
                 </nav>
             </div>
@@ -29,16 +33,72 @@
         <div class="row-px-xl-5">
             <div class="col-lg-8 table-responsive mb-5">
                 <table class="table table-light table-borderless table-hover text-center mb-0">
-                    <tr>
-                        <th>
-                            #
-                        </th>
-                        <th>Ürün Adı</th>
-                        <th>Adet</th>
-                        <th>Fiyat</th>
-                        <th>Toplam</th>
-                    </tr>
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>
+                                #
+                            </th>
+                            <th>Id</th>
+                            <th>Ürün Adı</th>
+                            <th>Adet</th>
+                            <th>Fiyat</th>
+                            <th>Toplam</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model)
+                    {
+
+                        count++;
+                        baskeTotalPrice = Model.Sum(x => x.Price);
+                        basketTotalPriceWithTax= baskeTotalPrice+ baskeTotalPrice*20/100;
+                        <tbody class="align-middle">
+                            <tr>
+                                <td class="align-middle">@count</td>
+                                <td class="align-middle">@item.Id</td>
+                                <td class="align-middle">@item.ProductName</td>
+                                <td class="align-middle">@item.Count</td>
+                                <td class="align-middle">@item.Price</td>
+                                <td class="align-middle">@item.TotalPrice</td>
+                                <td class="align-middle btn-delete"><button data-basketid="@item.DeskId>" id="btndeletebasketid" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
+                            </tr>
+                        </tbody>
+                    }
                 </table>
+            </div>
+            <div class="col-lg-4">
+                <form>
+                    <div class="input-group">
+                        <input type="text" id="cuponcode" class="form-control border-1 p-4" placeholder="Kupon Kodunuz" />
+                        <div>
+                            <a style="height:48px;padding-top:11px;margin-left:10px;" class="btn btn-warning" id="btncuponcode">Kuponu Uygula</a>
+                        </div>
+                    </div>
+                </form>
+                <br />
+                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-warning pr-3">Sepet Özeti</span></h5>
+                <div class="bg-light p-30 mb-5">
+                    <div id="container" class="border-bottom pb-2">
+                        <div class="d-flex justify-content-between mb-3">
+                            <h6>Toplam Tutar</h6>
+                            <h6><span id="totalprice">@baskeTotalPrice</span>TL</h6>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-medium">KDV Oranı</h6>
+                            <h6 id="kdv" class="font-weight-medium">%20</></h6>
+                        </div>
+                        <br />
+
+                    </div>
+                    <div class="pt-2">
+                        <div class="d-flex justify-content-between">
+                            <h5>Toplam Tutar</h5>
+                            <h5><span id="totalpricewithkdv">@basketTotalPriceWithTax</span></h5>
+                        </div>
+                        <br />
+                        <button id="btnchecked" class="btn btn-block btn-warning font-weight-bold my-3">Sipariş Ver</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

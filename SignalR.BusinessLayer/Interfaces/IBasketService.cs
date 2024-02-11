@@ -5,5 +5,5 @@ namespace SignalR.BusinessLayer.Interfaces;
 
 public interface IBasketService : IService<BasketCreateDto, BasketUpdateDto, BasketListDto, Basket>
 {
-    List<BasketListDto> GetBasketByMenuTableNumber(int id);
+    List<BasketListProductNameDto> GetBasketByMenuTableNumber(int id);
 }

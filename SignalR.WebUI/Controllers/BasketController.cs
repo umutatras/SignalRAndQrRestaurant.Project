@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SignalR.WebUI.Dtos;
+using System.Text;
 
 namespace SignalR.WebUI.Controllers;
 
@@ -16,15 +17,16 @@ public class BasketController : Controller
     public async Task<IActionResult> Index()
     {
         var client = _httpClientFactory.CreateClient();
-        var responseMessage = await client.GetAsync("https://localhost:7250/api/basket/GetBasketList");
+        var responseMessage = await client.GetAsync("https://localhost:7250/api/basket/GetBasketByMenuTableNumber?id=2");
         if (responseMessage.IsSuccessStatusCode)
         {
             var jsonData = await responseMessage.Content.ReadAsStringAsync();
-            var values = JsonConvert.DeserializeObject<ResponseDto<List<BasketListDto>>>(jsonData);
-            return View(values.Data);
+            var values = JsonConvert.DeserializeObject<List<BasketListProductNameDto>>(jsonData);
+            return View(values);
         }
         return View();
 
     }
+
 
 }

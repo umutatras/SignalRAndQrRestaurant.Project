@@ -11,5 +11,6 @@ public class BasketProfile : Profile
         CreateMap<Basket, BasketListDto>().ReverseMap();
         CreateMap<Basket, BasketCreateDto>().ReverseMap();
         CreateMap<Basket, BasketUpdateDto>().ReverseMap();
+        CreateMap<Basket, BasketListProductNameDto>().ForMember(e=>e.ProductName,opt=>opt.MapFrom(opt=>opt.Product.Name)).ReverseMap();
     }
 }

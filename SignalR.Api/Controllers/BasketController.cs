@@ -22,9 +22,15 @@ public class BasketController : ControllerBase
         return result;
     }  
     [HttpGet]
-    public List<BasketListDto> GetBasketByMenuTableNumber(int id)
+    public List<BasketListProductNameDto> GetBasketByMenuTableNumber(int id)
     {
         var result =  _basketService.GetBasketByMenuTableNumber(id);
+        return result;
+    }
+    [HttpPost]
+    public List<BasketListProductNameDto> AddBasket(int id)
+    {
+        var result = _basketService.GetBasketByMenuTableNumber(id);
         return result;
     }
     [HttpGet]

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FluentValidation;
+using Microsoft.EntityFrameworkCore;
 using SignalR.BusinessLayer.Interfaces;
 using SignalR.DataAccessLayer.UnitOfWork;
 using SignalR.DtoLayer.BasketDtos;
@@ -17,10 +18,10 @@ public class BasketManager : ServiceManager<BasketCreateDto, BasketUpdateDto, Ba
         _mapper = mapper;
     }
 
-    public List<BasketListDto> GetBasketByMenuTableNumber(int id)
+    public List<BasketListProductNameDto> GetBasketByMenuTableNumber(int id)
     {
-       var baskets= _unitOfWork.GetRepository<Basket>().Query().Where(x=>x.DeskId==id).ToList();
-       var result=_mapper.Map<List<BasketListDto>>(baskets);
+       var baskets= _unitOfWork.GetRepository<Basket>().Query().Include(x=>x.Product).Where(x=>x.DeskId==id).ToList();
+       var result=_mapper.Map<List<BasketListProductNameDto>>(baskets);
         return result;
     }
 }

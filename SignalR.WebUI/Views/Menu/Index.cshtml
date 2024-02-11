@@ -138,6 +138,7 @@
             var id = value;
             $.ajax({
                 type: 'POST',
+                url:"/Menu/AddBasket/"+id,
                 data: { item: id },
                 contentType: 'json',
                 success: function () {
@@ -148,7 +149,7 @@
                         button: "Tamam",
                     });
                 }
-            })
+            });
         }
     </script>
 
@@ -157,3 +158,18 @@
 </body>
 
 </html>
+@*
+    var id = value;
+    $.ajax({
+        type: 'POST',
+        data: { item: id },
+        contentType: 'json',
+        success: function () {
+            swal({
+                title: "Seçilen Ürün Id " + id,
+                text: "Seçiminizi Yaptınız!",
+                icon: "success",
+                button: "Tamam",
+            });
+        }
+    });*@
