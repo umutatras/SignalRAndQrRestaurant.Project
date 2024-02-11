@@ -38,6 +38,7 @@ public class AboutController : Controller
         var jsonData = JsonConvert.SerializeObject(dto);
         StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
         var responseMessage = await client.PostAsync("https://localhost:7250/api/about/add", content);
+        
         if (responseMessage.IsSuccessStatusCode)
         {
             return RedirectToAction("Index");

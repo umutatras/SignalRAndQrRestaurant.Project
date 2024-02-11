@@ -20,6 +20,12 @@ public class BasketController : ControllerBase
     {
         var result = await _basketService.GetAllAsync();
         return result;
+    }  
+    [HttpGet]
+    public List<BasketListDto> GetBasketByMenuTableNumber(int id)
+    {
+        var result =  _basketService.GetBasketByMenuTableNumber(id);
+        return result;
     }
     [HttpGet]
     public async Task<IResponse<BasketListDto>> GetById(int id)

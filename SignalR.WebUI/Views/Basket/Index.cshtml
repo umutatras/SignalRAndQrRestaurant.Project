@@ -1,0 +1,54 @@
+﻿@model List<BasketListDto>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+@await Component.InvokeAsync("UILayoutHead")
+
+<body class="sub_page">
+
+
+    @await Component.InvokeAsync("MenuNavbar")
+    <br /><br />
+    <div class="container-fluid">
+        <div class="row px-xl-5">
+            <div class="col-12">
+                <nav class="breadcrumb bg-light mb-30">
+                    <a class="breadcrumb-item text-white" href="/Default/Index">Anasayfa</a>
+                    <a class="breadcrumb-item text-white" href="/Menu/Index">Menü</a>
+                    <span class="breadcrumb-item active">Sepetiniz</span>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row-px-xl-5">
+            <div class="col-lg-8 table-responsive mb-5">
+                <table class="table table-light table-borderless table-hover text-center mb-0">
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>Ürün Adı</th>
+                        <th>Adet</th>
+                        <th>Fiyat</th>
+                        <th>Toplam</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    @await Component.InvokeAsync("UILayoutFooter")
+
+    @await Component.InvokeAsync("UILayoutScript")
+
+
+
+</body>
+
+</html>
