@@ -20,6 +20,18 @@ public class NotificationController : ControllerBase
     {
         var result = await _notificationService.GetAllAsync();
         return result;
+    } 
+    [HttpGet]
+    public int NotificationCountByStatusFalse()
+    {
+        var result =  _notificationService.NotificationCountByStatusFalse();
+        return result;
+    } 
+    [HttpGet]
+    public  List<NofiticationListDto> GetAllNotifyByFalse()
+    {
+        var result =  _notificationService.GetAllNotifyByFalse();
+        return result;
     }
     [HttpGet]
     public async Task<IResponse<NofiticationListDto>> GetById(int id)

@@ -5,4 +5,6 @@ namespace SignalR.BusinessLayer.Interfaces;
 
 public interface INotificationService : IService<NotificationCreateDto, NofiticationUpdateDto, NofiticationListDto, Nofitication>
 {
+    int NotificationCountByStatusFalse();
+    List<NofiticationListDto> GetAllNotifyByFalse();
 }
