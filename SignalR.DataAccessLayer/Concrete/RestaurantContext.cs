@@ -32,4 +32,5 @@ public class RestaurantContext:DbContext
     public DbSet<Desk> Desks { get; set; }
     public DbSet<Slider> Sliders { get; set; }
     public DbSet<Basket> Baskets { get; set; }
+    public DbSet<Nofitication> Nofitications { get; set; }
 }
