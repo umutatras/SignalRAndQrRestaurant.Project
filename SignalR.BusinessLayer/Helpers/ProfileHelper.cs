@@ -24,7 +24,8 @@ public static class ProfileHelper
             new DeskProfile(),
             new SliderProfile(),
             new BasketProfile(),
-        
+            new NotificationProfile()
+
         };
 
     }

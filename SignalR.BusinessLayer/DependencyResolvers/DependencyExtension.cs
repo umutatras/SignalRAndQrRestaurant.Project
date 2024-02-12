@@ -15,6 +15,7 @@ using SignalR.BusinessLayer.ValidationRules.Desk;
 using SignalR.BusinessLayer.ValidationRules.Discount;
 using SignalR.BusinessLayer.ValidationRules.Feature;
 using SignalR.BusinessLayer.ValidationRules.MoneyCase;
+using SignalR.BusinessLayer.ValidationRules.Notification;
 using SignalR.BusinessLayer.ValidationRules.Order;
 using SignalR.BusinessLayer.ValidationRules.OrderDetail;
 using SignalR.BusinessLayer.ValidationRules.Product;
@@ -32,6 +33,7 @@ using SignalR.DtoLayer.DeskDtos;
 using SignalR.DtoLayer.DiscountDtos;
 using SignalR.DtoLayer.FeatureDtos;
 using SignalR.DtoLayer.MoneyCase;
+using SignalR.DtoLayer.Nofitication;
 using SignalR.DtoLayer.Order;
 using SignalR.DtoLayer.OrderDetail;
 using SignalR.DtoLayer.ProductDtos;
@@ -113,6 +115,10 @@ public static class DependencyExtension
         services.AddTransient<IValidator<BasketListDto>, BasketListValidator>();
         services.AddTransient<IValidator<BasketUpdateDto>, BasketUpdateValidator>();
 
+        services.AddTransient<IValidator<NotificationCreateDto>, NotificationCreateValidator>();
+        services.AddTransient<IValidator<NofiticationListDto>, NotificationListValidator>();
+        services.AddTransient<IValidator<NofiticationUpdateDto>, NotificationUpdateValidator>();
+
         services.AddScoped<IAboutService, AboutManager>();
         services.AddScoped<IBookingService, BookingManager>();
         services.AddScoped<ICategoryService, CategoryManager>();
@@ -128,6 +134,7 @@ public static class DependencyExtension
         services.AddScoped<IDeskService, DeskManager>();
         services.AddScoped<ISliderService, SliderManager>();
         services.AddScoped<IBasketService, BasketManager>();
+        services.AddScoped<INotificationService, NotificationManager>();
 
 
         var profiles = ProfileHelper.GetProfiles();
