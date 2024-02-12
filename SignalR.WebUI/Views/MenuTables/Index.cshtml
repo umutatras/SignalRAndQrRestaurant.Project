@@ -1,0 +1,52 @@
+﻿@model List<DeskListDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Masa İşlemleri</h4>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Masa Listesi</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-sub">
+                            Masalar İle İlgili İşlemleri Aşağıdan Gerçekleştirebilirsiniz :
+                        </div>
+                        <table class="table mt-3">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Adı</th>                       
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Id</td>
+                                        <td>@item.Name</td>                              
+                                        <td>
+                                            <a href="/MenuTables/DeleteDesk/@item.Id"
+                                               class="btn btn-danger">Sil</a>
+                                        </td>
+                                        <td><a href="/MenuTables/UpdateDesk/@item.Id" class="btn btn-warning">Güncelle</a></td>
+
+                                    </tr>
+                                }
+
+
+                            </tbody>
+                        </table>
+                        <a href="/MenuTables/CreateDesk" class="btn btn-primary">Yeni İletişim Girişi</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

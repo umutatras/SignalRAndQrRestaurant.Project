@@ -1,0 +1,48 @@
+﻿@model List<DeskListDto>
+@{
+    ViewData["Title"] = "TabletListByStatus";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string color = "";
+    string status = "";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Masa Sayfası</h4>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                if(item.Status==false)
+                {
+                    color = "card-danger";
+                    status = "boş";
+                }
+                else
+                {
+                    color = "card-success";
+                    status = "dolu";
+                }
+                <div class="col-md-3">
+                    <div class="card card-stats @color">
+                        <div class="card-body ">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="icon-big text-center">
+                                        <i class="la la-certificate"></i>
+                                    </div>
+                                </div>
+                                <div class="col-7 d-flex align-items-center">
+                                    <div class="numbers">
+                                        <p class="card-category">@item.Name</p>
+                                        <h4 class="card-title">@status</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>

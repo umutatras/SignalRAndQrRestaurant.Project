@@ -1,0 +1,32 @@
+﻿@model DeskCreateDto
+@{
+    ViewData["Title"] = "CreateDesk";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Masa İşlemleri</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post" asp-action="CreateDesk" asp-controller="MenuTables">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Yeni Masa Girişi</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="footerDescription">Ad  Giriniz</label>
+                                <input asp-for="Name" type="text" class="form-control" id="footerDescription">
+                            </div>                       
+                            <div class="card-action">
+                                <button class="btn btn-primary">İletişim Ekle</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
