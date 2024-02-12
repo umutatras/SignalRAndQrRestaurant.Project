@@ -1,0 +1,38 @@
+﻿@model NotificationCreateDto
+@{
+    ViewData["Title"] = "CreateContact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Notify İşlemleri</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post" asp-action="CreateNotification" asp-controller="Notification">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Yeni Bildiri Girişi</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="footerDescription">Type Giriniz</label>
+                                <input asp-for="Type" type="text" class="form-control" id="footerDescription">
+                            </div>
+                            <div class="form-group">
+                                <label for="mail">Desc Giriniz</label>
+                                <input asp-for="Description" type="text" class="form-control" id="mail">
+                            </div>                         
+                            <div class="card-action">
+                                <button class="btn btn-primary">Notify Ekle</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
