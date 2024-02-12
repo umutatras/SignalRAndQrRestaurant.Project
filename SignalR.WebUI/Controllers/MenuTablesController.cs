@@ -79,7 +79,7 @@ public class MenuTablesController : Controller
         }
         return View(dto);
     }
-    public async Task<IActionResult> TabletListByStatus()
+    public async Task<IActionResult> TableListByStatus()
     {
         var client = _httpClientFactory.CreateClient();
         var responseMessage = await client.GetAsync("https://localhost:7250/api/desk/GetDeskList");
