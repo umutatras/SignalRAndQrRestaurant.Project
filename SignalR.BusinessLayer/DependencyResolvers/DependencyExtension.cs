@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FluentValidation;
+using Hangfire;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -52,6 +53,11 @@ public static class DependencyExtension
             opt.UseSqlServer(configuration.GetConnectionString("SqlServer"));
 
         });
+        services.AddHangfire(config =>
+        {
+            config.UseSqlServerStorage(configuration.GetConnectionString("SqlServer"));
+
+        }).AddHangfireServer();
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 
@@ -135,6 +141,7 @@ public static class DependencyExtension
         services.AddScoped<ISliderService, SliderManager>();
         services.AddScoped<IBasketService, BasketManager>();
         services.AddScoped<INotificationService, NotificationManager>();
+        services.AddScoped<IJobService, JobManager>();
 
 
         var profiles = ProfileHelper.GetProfiles();
