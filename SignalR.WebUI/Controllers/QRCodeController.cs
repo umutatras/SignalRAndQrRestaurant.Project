@@ -19,7 +19,7 @@ public class QRCodeController : Controller
         QRCodeGenerator.QRCode squareCode = createQRCode.CreateQrCode(value, QRCodeGenerator.ECCLevel.Q);
         using Bitmap image = squareCode.GetGraphic(10);
         image.Save(ms,ImageFormat.Png);
-        ViewBag.QRCodeImage = "data:image/png;base64"+Convert.ToBase64String(ms.ToArray());
+        ViewBag.QRCodeImage = "data:image/png;base64,"+Convert.ToBase64String(ms.ToArray());
         return View();
     }
 }
