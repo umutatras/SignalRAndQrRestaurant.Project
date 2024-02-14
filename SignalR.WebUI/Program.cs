@@ -1,14 +1,17 @@
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.EntityFrameworkCore;
 using SignalR.DataAccessLayer.Concrete;
 using SignalR.EntityLayer.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
-var requireAuthorizePolicy=new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+var requireAuthorizePolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
 builder.Services.AddHttpClient();
-builder.Services.AddDbContext<RestaurantContext>();
-builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<RestaurantContext>();
+builder.Services.AddDbContext<RestaurantContext>(opt =>
+{
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer"));
+
+}); builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<RestaurantContext>();
 // Add services to the container.
 builder.Services.AddControllersWithViews(opt =>
 {
