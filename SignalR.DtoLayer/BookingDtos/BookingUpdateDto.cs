@@ -10,4 +10,6 @@ public class BookingUpdateDto : IUpdateDto
     public string Mail { get; set; }
     public int PersonCount { get; set; }
     public DateTime CreateDate { get; set; }
+    public string Description { get; set; }
+
 }
