@@ -1,6 +1,11 @@
+using SignalR.DataAccessLayer.Concrete;
+using SignalR.EntityLayer.Entities;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddHttpClient();
+builder.Services.AddDbContext<RestaurantContext>();
+builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<RestaurantContext>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

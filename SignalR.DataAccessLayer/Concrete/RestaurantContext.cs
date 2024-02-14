@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using SignalR.DataAccessLayer.Configuration;
 using SignalR.EntityLayer;
 using SignalR.EntityLayer.Entities;
@@ -6,7 +7,7 @@ using System.Reflection;
 
 namespace SignalR.DataAccessLayer.Concrete;
 
-public class RestaurantContext:DbContext
+public class RestaurantContext:IdentityDbContext<AppUser,AppRole,int>
 {
     public RestaurantContext(DbContextOptions<RestaurantContext> options):base(options)
     {
